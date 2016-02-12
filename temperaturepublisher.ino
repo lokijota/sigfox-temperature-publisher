@@ -40,6 +40,10 @@ void loop()
 
     // send message to sigfox network
     sigfox.write("AT$SF=");
+    
+    if (hexTemperature.length() % 2 != 0) {
+      hexTemperature = "0" + hexTemperature;
+    }
     sigfox.print(hexTemperature);
     sigfox.write("\n");
   }
